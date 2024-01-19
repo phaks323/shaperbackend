@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "softskilldescriptions",
+  "info": {
+    "singularName": "softskilldescription",
+    "pluralName": "softskilldescriptions",
+    "displayName": "softskilldescription"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "problemsolving_description": {
+      "type": "richtext"
+    },
+    "interpersonal_description": {
+      "type": "richtext"
+    },
+    "communication_description": {
+      "type": "richtext"
+    },
+    "leadership_description": {
+      "type": "richtext"
+    },
+    "teamwork_description": {
+      "type": "richtext"
+    },
+    "applicants": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::applicant.applicant",
+      "mappedBy": "softskilldescriptions"
+    }
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "teamleaders",
+  "info": {
+    "singularName": "teamleader",
+    "pluralName": "teamleaders",
+    "displayName": "teamleader"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "firstname": {
+      "type": "string"
+    },
+    "lastname": {
+      "type": "string"
+    },
+    "teams": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::team.team",
+      "inversedBy": "teamleaders"
+    },
+    "cohorts": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::cohort.cohort",
+      "inversedBy": "teamleaders"
+    },
+    "applicants": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::applicant.applicant",
+      "mappedBy": "teamleaders"
+    }
+  }
+}

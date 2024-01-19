@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "softskillratings",
+  "info": {
+    "singularName": "softskillrating",
+    "pluralName": "softskillratings",
+    "displayName": "softskillrating"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "problemsolving": {
+      "type": "string"
+    },
+    "interpersonal": {
+      "type": "string"
+    },
+    "teamwork": {
+      "type": "string"
+    },
+    "communication": {
+      "type": "string"
+    },
+    "leadership": {
+      "type": "string"
+    },
+    "mostimproved": {
+      "type": "string"
+    }
+  }
+}

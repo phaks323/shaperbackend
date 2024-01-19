@@ -1,0 +1,88 @@
+{
+  "kind": "collectionType",
+  "collectionName": "projects",
+  "info": {
+    "singularName": "project",
+    "pluralName": "projects",
+    "displayName": "project",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "projectname": {
+      "type": "string"
+    },
+    "problemstatement": {
+      "type": "richtext"
+    },
+    "solution": {
+      "type": "richtext"
+    },
+    "screenshot1explanation": {
+      "type": "richtext"
+    },
+    "screenshot2explanation": {
+      "type": "richtext"
+    },
+    "screenshot3explanation": {
+      "type": "richtext"
+    },
+    "screenshot4explanation": {
+      "type": "richtext"
+    },
+    "screenshot5explanation": {
+      "type": "richtext"
+    },
+    "screenshot6explanation": {
+      "type": "richtext"
+    },
+    "screenshot7explanation": {
+      "type": "richtext"
+    },
+    "imageurl": {
+      "type": "string"
+    },
+    "screenshot1_image": {
+      "type": "string"
+    },
+    "screenshot2_image": {
+      "type": "string"
+    },
+    "screenshot3_image": {
+      "type": "string"
+    },
+    "screenshot4_image": {
+      "type": "string"
+    },
+    "screenshot5_image": {
+      "type": "string"
+    },
+    "screenshot6_image": {
+      "type": "string"
+    },
+    "screenshot7_image": {
+      "type": "string"
+    },
+    "applicants": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::applicant.applicant",
+      "mappedBy": "projects"
+    },
+    "cohorts": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::cohort.cohort",
+      "mappedBy": "projects"
+    },
+    "teams": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::team.team",
+      "inversedBy": "projects"
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "communicationratingdescriptions",
+  "info": {
+    "singularName": "communicationratingdescription",
+    "pluralName": "communicationratingdescriptions",
+    "displayName": "communicationratingdescription"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "rating2": {
+      "type": "richtext"
+    },
+    "rating1": {
+      "type": "richtext"
+    },
+    "rating3": {
+      "type": "richtext"
+    },
+    "rating4": {
+      "type": "richtext"
+    },
+    "rating5": {
+      "type": "richtext"
+    },
+    "applicants": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::applicant.applicant",
+      "mappedBy": "communicationratingdescriptions"
+    }
+  }
+}

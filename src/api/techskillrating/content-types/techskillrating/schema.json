@@ -1,0 +1,59 @@
+{
+  "kind": "collectionType",
+  "collectionName": "techskillratings",
+  "info": {
+    "singularName": "techskillrating",
+    "pluralName": "techskillratings",
+    "displayName": "techskillrating"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "skill1": {
+      "type": "string"
+    },
+    "skill2": {
+      "type": "string"
+    },
+    "skill3": {
+      "type": "string"
+    },
+    "skill4": {
+      "type": "string"
+    },
+    "skill5": {
+      "type": "string"
+    },
+    "skill6": {
+      "type": "string"
+    },
+    "skill7": {
+      "type": "string"
+    },
+    "mostimproved": {
+      "type": "enumeration",
+      "enum": [
+        "ReactJS",
+        "Python",
+        "Machine Learning",
+        "Databases",
+        "SQL",
+        "CSS",
+        "Django",
+        "Javascript",
+        "HTML",
+        "Angular",
+        "Bootstrap",
+        "Visualisation"
+      ]
+    },
+    "applicants": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::applicant.applicant",
+      "mappedBy": "techskillratings"
+    }
+  }
+}

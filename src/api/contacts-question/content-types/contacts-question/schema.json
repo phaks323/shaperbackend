@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "contacts_questions",
+  "info": {
+    "singularName": "contacts-question",
+    "pluralName": "contacts-questions",
+    "displayName": "contacts-question"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "question": {
+      "type": "richtext"
+    },
+    "option": {
+      "type": "richtext"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "Radio",
+        "Select",
+        "Text",
+        "Date",
+        "Number"
+      ]
+    }
+  }
+}

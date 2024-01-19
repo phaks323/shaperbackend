@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "teamworkratingdescriptions",
+  "info": {
+    "singularName": "teamworkratingdescription",
+    "pluralName": "teamworkratingdescriptions",
+    "displayName": "teamworkratingdescription"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "rating1": {
+      "type": "richtext"
+    },
+    "rating2": {
+      "type": "richtext"
+    },
+    "rating3": {
+      "type": "richtext"
+    },
+    "rating4": {
+      "type": "richtext"
+    },
+    "rating5": {
+      "type": "richtext"
+    },
+    "applicants": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::applicant.applicant",
+      "mappedBy": "teamworkratingdescriptions"
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "qualification_questions",
+  "info": {
+    "singularName": "qualification-question",
+    "pluralName": "qualification-questions",
+    "displayName": "qualification-question"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "question": {
+      "type": "richtext"
+    },
+    "option": {
+      "type": "richtext"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "Radio",
+        "Select",
+        "Text",
+        "Date",
+        "Number"
+      ]
+    }
+  }
+}
