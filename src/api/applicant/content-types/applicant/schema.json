@@ -90,7 +90,7 @@
     "nextofkinumber": {
       "type": "string"
     },
-    "imagery": {
+    "imageurl": {
       "type": "string"
     },
     "cohorts": {
@@ -176,6 +176,12 @@
       "relation": "manyToMany",
       "target": "api::techskillsratingdescription.techskillsratingdescription",
       "inversedBy": "applicants"
+    },
+    "softskillratings": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::softskillrating.softskillrating",
+      "mappedBy": "applicants"
     }
   }
 }

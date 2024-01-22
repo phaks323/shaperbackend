@@ -4,7 +4,8 @@
   "info": {
     "singularName": "softskillrating",
     "pluralName": "softskillratings",
-    "displayName": "softskillrating"
+    "displayName": "softskillrating",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -28,6 +29,12 @@
     },
     "mostimproved": {
       "type": "string"
+    },
+    "applicants": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::applicant.applicant",
+      "inversedBy": "softskillratings"
     }
   }
 }

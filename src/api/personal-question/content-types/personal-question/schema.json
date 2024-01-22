@@ -4,7 +4,8 @@
   "info": {
     "singularName": "personal-question",
     "pluralName": "personal-questions",
-    "displayName": "personal-question"
+    "displayName": "personal-question",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -18,14 +19,7 @@
       "type": "richtext"
     },
     "type": {
-      "type": "enumeration",
-      "enum": [
-        "Radio",
-        "Select",
-        "Text",
-        "Date",
-        "Number"
-      ]
+      "type": "string"
     }
   }
 }

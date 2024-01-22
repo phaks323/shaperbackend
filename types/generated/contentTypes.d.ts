@@ -573,6 +573,50 @@ export interface PluginContentReleasesReleaseAction
   };
 }
 
+export interface PluginI18NLocale extends Schema.CollectionType {
+  collectionName: 'i18n_locale';
+  info: {
+    singularName: 'locale';
+    pluralName: 'locales';
+    collectionName: 'locales';
+    displayName: 'Locale';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
+  attributes: {
+    name: Attribute.String &
+      Attribute.SetMinMax<{
+        min: 1;
+        max: 50;
+      }>;
+    code: Attribute.String & Attribute.Unique;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'plugin::i18n.locale',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'plugin::i18n.locale',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface PluginUsersPermissionsPermission
   extends Schema.CollectionType {
   collectionName: 'up_permissions';
@@ -724,50 +768,6 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
-export interface PluginI18NLocale extends Schema.CollectionType {
-  collectionName: 'i18n_locale';
-  info: {
-    singularName: 'locale';
-    pluralName: 'locales';
-    collectionName: 'locales';
-    displayName: 'Locale';
-    description: '';
-  };
-  options: {
-    draftAndPublish: false;
-  };
-  pluginOptions: {
-    'content-manager': {
-      visible: false;
-    };
-    'content-type-builder': {
-      visible: false;
-    };
-  };
-  attributes: {
-    name: Attribute.String &
-      Attribute.SetMinMax<{
-        min: 1;
-        max: 50;
-      }>;
-    code: Attribute.String & Attribute.Unique;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'plugin::i18n.locale',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'plugin::i18n.locale',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface ApiApplicantApplicant extends Schema.CollectionType {
   collectionName: 'applicants';
   info: {
@@ -806,7 +806,7 @@ export interface ApiApplicantApplicant extends Schema.CollectionType {
     idnumber: Attribute.String;
     phonenumber: Attribute.String;
     nextofkinumber: Attribute.String;
-    imagery: Attribute.String;
+    imageurl: Attribute.String;
     cohorts: Attribute.Relation<
       'api::applicant.applicant',
       'manyToMany',
@@ -876,6 +876,11 @@ export interface ApiApplicantApplicant extends Schema.CollectionType {
       'api::applicant.applicant',
       'manyToMany',
       'api::techskillsratingdescription.techskillsratingdescription'
+    >;
+    softskillratings: Attribute.Relation<
+      'api::applicant.applicant',
+      'manyToMany',
+      'api::softskillrating.softskillrating'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -1218,6 +1223,7 @@ export interface ApiContactsQuestionContactsQuestion
     singularName: 'contacts-question';
     pluralName: 'contacts-questions';
     displayName: 'contacts-question';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1225,7 +1231,7 @@ export interface ApiContactsQuestionContactsQuestion
   attributes: {
     question: Attribute.RichText;
     option: Attribute.RichText;
-    type: Attribute.Enumeration<['Radio', 'Select', 'Text', 'Date', 'Number']>;
+    type: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1331,6 +1337,7 @@ export interface ApiPersonalQuestionPersonalQuestion
     singularName: 'personal-question';
     pluralName: 'personal-questions';
     displayName: 'personal-question';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1338,7 +1345,7 @@ export interface ApiPersonalQuestionPersonalQuestion
   attributes: {
     question: Attribute.RichText;
     option: Attribute.RichText;
-    type: Attribute.Enumeration<['Radio', 'Select', 'Text', 'Date', 'Number']>;
+    type: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1467,6 +1474,7 @@ export interface ApiQualificationQuestionQualificationQuestion
     singularName: 'qualification-question';
     pluralName: 'qualification-questions';
     displayName: 'qualification-question';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1474,7 +1482,7 @@ export interface ApiQualificationQuestionQualificationQuestion
   attributes: {
     question: Attribute.RichText;
     option: Attribute.RichText;
-    type: Attribute.Enumeration<['Radio', 'Select', 'Text', 'Date', 'Number']>;
+    type: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1611,6 +1619,7 @@ export interface ApiSoftskillratingSoftskillrating
     singularName: 'softskillrating';
     pluralName: 'softskillratings';
     displayName: 'softskillrating';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1622,6 +1631,11 @@ export interface ApiSoftskillratingSoftskillrating
     communication: Attribute.String;
     leadership: Attribute.String;
     mostimproved: Attribute.String;
+    applicants: Attribute.Relation<
+      'api::softskillrating.softskillrating',
+      'manyToMany',
+      'api::applicant.applicant'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1775,6 +1789,7 @@ export interface ApiTechskillratingTechskillrating
     singularName: 'techskillrating';
     pluralName: 'techskillratings';
     displayName: 'techskillrating';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1787,27 +1802,12 @@ export interface ApiTechskillratingTechskillrating
     skill5: Attribute.String;
     skill6: Attribute.String;
     skill7: Attribute.String;
-    mostimproved: Attribute.Enumeration<
-      [
-        'ReactJS',
-        'Python',
-        'Machine Learning',
-        'Databases',
-        'SQL',
-        'CSS',
-        'Django',
-        'Javascript',
-        'HTML',
-        'Angular',
-        'Bootstrap',
-        'Visualisation'
-      ]
-    >;
     applicants: Attribute.Relation<
       'api::techskillrating.techskillrating',
       'manyToMany',
       'api::applicant.applicant'
     >;
+    mostimproved: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1880,10 +1880,10 @@ declare module '@strapi/types' {
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
+      'plugin::i18n.locale': PluginI18NLocale;
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
-      'plugin::i18n.locale': PluginI18NLocale;
       'api::applicant.applicant': ApiApplicantApplicant;
       'api::cohort.cohort': ApiCohortCohort;
       'api::communicationratingdescription.communicationratingdescription': ApiCommunicationratingdescriptionCommunicationratingdescription;

@@ -4,7 +4,8 @@
   "info": {
     "singularName": "techskillrating",
     "pluralName": "techskillratings",
-    "displayName": "techskillrating"
+    "displayName": "techskillrating",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -32,28 +33,14 @@
     "skill7": {
       "type": "string"
     },
-    "mostimproved": {
-      "type": "enumeration",
-      "enum": [
-        "ReactJS",
-        "Python",
-        "Machine Learning",
-        "Databases",
-        "SQL",
-        "CSS",
-        "Django",
-        "Javascript",
-        "HTML",
-        "Angular",
-        "Bootstrap",
-        "Visualisation"
-      ]
-    },
     "applicants": {
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::applicant.applicant",
       "mappedBy": "techskillratings"
+    },
+    "mostimproved": {
+      "type": "string"
     }
   }
 }
